@@ -1,0 +1,61 @@
+version: '1.0'
+name: pipeline-20240614
+displayName: pipeline-20240614
+triggers:
+  trigger: auto
+  push:
+    branches:
+      precise:
+        - main
+stages:
+  - name: stage-a9e9901f
+    displayName: build
+    strategy: naturally
+    trigger: auto
+    executor:
+      - fanzhi1
+    steps:
+      - step: build@nodejs
+        name: build_nodejs
+        displayName: Nodejs 构建
+        nodeVersion: 18.16.0
+        commands:
+          - '# 设置NPM源，提升安装速度'
+          - npm config set registry https://registry.npmmirror.com
+          - ''
+          - '# 执行编译命令'
+          - npm install && npm run build
+        artifacts:
+          - name: BUILD_ARTIFACT
+            path:
+              - ./dist
+        caches:
+          - ~/.npm
+          - ~/.yarn
+        notify: []
+        strategy:
+          retry: '0'
+  - name: stage-74130985
+    displayName: 发布
+    strategy: naturally
+    trigger: auto
+    executor: []
+    steps:
+      - step: publish@general_artifacts
+        name: publish_general_artifacts
+        displayName: 上传制品
+        dependArtifact: BUILD_ARTIFACT
+        artifactName: dockerproxy-ui
+        notify: []
+        strategy:
+          retry: '0'
+      - step: publish@release_artifacts
+        name: publish_release_artifacts
+        displayName: 发布
+        dependArtifact: dockerproxy-ui
+        version: 1.0.0.0
+        autoIncrement: true
+        notify: []
+        strategy:
+          retry: '0'
+        dependsOn: publish_general_artifacts
