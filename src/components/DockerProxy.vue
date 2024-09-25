@@ -20,16 +20,16 @@
         </div>
         <div class="gpt">
           <p style="font-size: 20px" @click="
-              navigateToExternal(
-                'https://www.yuque.com/kubesre/cpduyq/kf8581aru299n8xq'
-              )
+            navigateToExternal(
+              'https://www.yuque.com/kubesre/cpduyq/kf8581aru299n8xq'
+            )
             ">
             免魔法！非镜像！官网原版ChatGPT4账号免费使用，含最新4o模型
           </p>
           <el-button type="primary" @click="
-              navigateToExternal(
-                'https://www.yuque.com/kubesre/cpduyq/kf8581aru299n8xq'
-              )
+            navigateToExternal(
+              'https://www.yuque.com/kubesre/cpduyq/kf8581aru299n8xq'
+            )
             ">点击使用</el-button>
         </div>
       </div>
@@ -151,7 +151,7 @@ export default {
       const repoMapping = {
         "cr.l5d.io": `l5d.${proxyDomain}`,
         "docker.elastic.co": `elastic.${proxyDomain}`,
-        "docker.io": `dhub.${proxyDomain}`,
+        "docker.io": `docker.${proxyDomain}`,
         "gcr.io": `gcr.${proxyDomain}`,
         "ghcr.io": `ghcr.${proxyDomain}`,
         "k8s.gcr.io": `k8s-gcr.${proxyDomain}`,
@@ -204,14 +204,16 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* 防止页面出现水平滚动条 */
+  overflow-x: hidden;
+  /* 防止页面出现水平滚动条 */
 }
 
 .el-card {
   width: 80%;
   background-color: #fff;
   border-radius: 5px;
-  margin: 0 auto; /* 居中 */
+  margin: 0 auto;
+  /* 居中 */
 }
 
 .commands {
@@ -221,8 +223,10 @@ body {
   justify-content: center;
   padding: 30px;
   text-align: left;
-  width: 100%; /* 确保宽度为100% */
-  box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+  width: 100%;
+  /* 确保宽度为100% */
+  box-sizing: border-box;
+  /* 包含内边距和边框在宽度内 */
 }
 
 .logo {
@@ -237,14 +241,17 @@ body {
   padding: 50px 0;
   background: #3b8dbd;
   color: #fff;
-  width: 100%; /* 确保宽度为100% */
-  box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+  width: 100%;
+  /* 确保宽度为100% */
+  box-sizing: border-box;
+  /* 包含内边距和边框在宽度内 */
 }
 
 /* 确保表单元素和输入框不会超出容器宽度 */
 .el-form-item {
   width: 100%;
-  box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+  box-sizing: border-box;
+  /* 包含内边距和边框在宽度内 */
 }
 
 .command-wrapper {
@@ -254,8 +261,10 @@ body {
 
 .el-input {
   flex: 1;
-  margin-right: 10px; /* 调整间距 */
-  box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+  margin-right: 10px;
+  /* 调整间距 */
+  box-sizing: border-box;
+  /* 包含内边距和边框在宽度内 */
 }
 
 .command-section {
